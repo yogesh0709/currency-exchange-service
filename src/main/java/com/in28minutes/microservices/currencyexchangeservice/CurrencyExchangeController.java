@@ -29,7 +29,7 @@ public class CurrencyExchangeController {
 	public APIResponse retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
 
 		APIResponse response = new APIResponse();
-		CurrencyExchangeRate currencyExchange = null;
+		CurrencyExchange currencyExchange = null;
 		try
 		{
 			logger.info("retrieveExchangeValue called with {} to {}", from, to);
