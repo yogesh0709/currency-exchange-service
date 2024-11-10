@@ -90,12 +90,7 @@
 			<artifactId>javax.persistence-api</artifactId>
 			<version>2.2</version> <!-- version compatible with your project -->
 		</dependency>
-		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>6.1.6.Final</version>
-            <type>pom</type>
-        </dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>
