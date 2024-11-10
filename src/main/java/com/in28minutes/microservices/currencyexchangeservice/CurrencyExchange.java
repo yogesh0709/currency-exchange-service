@@ -1,7 +1,6 @@
 package com.in28minutes.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,30 +12,25 @@ public class CurrencyExchange {
 	@Id
 	private Long id;
 	
-	@Column(name = "exchange_rate_from")
+	@Column(name = "currency_from")
 	private String from;
 	
-	@Column(name = "exchange_rate_to")
+	@Column(name = "currency_to")
 	private String to;
-	
-	@Column(name = "exchange_rate")
-	private BigDecimal rate;
-	
-	@Column(name = "effective_date")
-	private Date effectiveDate;
+
+	private BigDecimal conversionMultiple;
+	private String environment;
 
 	public CurrencyExchange() {
 		
 	}
 	
-	public CurrencyExchange(Long id,String from,String to, BigDecimal rate, Date effectiveDate) {
+	public CurrencyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
 		super();
-		this.id=id;
+		this.id = id;
 		this.from = from;
 		this.to = to;
-		this.rate = rate;
-		this.effectiveDate = effectiveDate;
-		
+		this.conversionMultiple = conversionMultiple;
 	}
 
 	public Long getId() {
@@ -63,20 +57,22 @@ public class CurrencyExchange {
 		this.to = to;
 	}
 
-	public BigDecimal getRate() {
-		return rate;
+	public BigDecimal getConversionMultiple() {
+		return conversionMultiple;
 	}
 
-	public void setRate(BigDecimal rate) {
-		this.rate = rate;
+	public void setConversionMultiple(BigDecimal conversionMultiple) {
+		this.conversionMultiple = conversionMultiple;
 	}
 
-	public Date getEffectiveDate() {
-		return effectiveDate;
+	
+	public String getEnvironment() {
+		return environment;
 	}
 
-	public void setEffectiveDate(Date effectiveDate) {
-		this.effectiveDate = effectiveDate;
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
+	
 
 }
