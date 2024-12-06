@@ -12,7 +12,11 @@ permissions:
     group: ec2-user
 
 hooks:
+  BeforeInstall:
+    - location: shutdown-server.sh
+      timeout: 300
+      runas: ec2-user
   ApplicationStart:
-    - location: mvn spring-boot:run
-      timeout: 20
+    - location: start-server.sh
+      timeout: 300
       runas: ec2-user
