@@ -25,6 +25,3 @@ values(10008,'IDR','INR',70,'');
 insert into currency_exchange
 (id,currency_from,currency_to,conversion_multiple,environment)
 values(10009,'SAR','INR',5,'');
-insert into currency_exchange
-(id,currency_from,currency_to,conversion_multiple,environment)
-values(10010,'CAD','INR',50,'');
