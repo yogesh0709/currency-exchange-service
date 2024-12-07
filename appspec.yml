@@ -12,9 +12,9 @@ permissions:
     group: ec2-user
 
 hooks:
-  ApplicationStop:
-    - location: shutdown-server.sh
-      timeout: 120
+  BeforeInstall:
+    - location: remove-files.sh
+      timeout: 200
       runas: ec2-user
   ApplicationStart:
     - location: start-server.sh
