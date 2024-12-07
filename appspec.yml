@@ -14,7 +14,7 @@ permissions:
 hooks:
   BeforeInstall:
     - location: remove-files.sh
-      timeout: 300
+      timeout: 200
       runas: ec2-user
   ApplicationStop:
     - location: shutdown-server.sh
