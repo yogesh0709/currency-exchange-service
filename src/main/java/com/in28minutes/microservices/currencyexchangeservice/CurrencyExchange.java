@@ -1,21 +1,20 @@
 package com.in28minutes.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+
+@Document("currencyexchange")
 public class CurrencyExchange {
 	
 	@Id
-	private Long id;
+	private String id;
 	
-	@Column(name = "currency_from")
 	private String from;
 	
-	@Column(name = "currency_to")
 	private String to;
 
 	private BigDecimal conversionMultiple;
@@ -25,7 +24,7 @@ public class CurrencyExchange {
 		
 	}
 	
-	public CurrencyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
+	public CurrencyExchange(String id, String from, String to, BigDecimal conversionMultiple) {
 		super();
 		this.id = id;
 		this.from = from;
@@ -33,11 +32,11 @@ public class CurrencyExchange {
 		this.conversionMultiple = conversionMultiple;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
