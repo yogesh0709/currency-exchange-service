@@ -29,11 +29,11 @@ public class CurrencyExchange {
 		this.conversionMultiple = conversionMultiple;
 	}
 
-	public String getId() {
+	public String getRecordId() {
 		return recordId;
 	}
 
-	public void setId(String recordId) {
+	public void setRecordId(String recordId) {
 		this.recordId = recordId;
 	}
 

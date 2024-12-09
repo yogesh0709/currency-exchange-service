@@ -32,7 +32,7 @@ public class CurrencyExchangeController {
 		
 		logger.info("retrieveExchangeValue called with {} to {}", from, to);
 		
-		CurrencyExchange currencyExchange = repository.findByFromAndTo(from, to);
+		CurrencyExchange currencyExchange = service.findByFromAndTo(from, to);
 		
 		if(currencyExchange ==null) {
 			throw new RuntimeException
@@ -53,7 +53,7 @@ public class CurrencyExchangeController {
 		
 		logger.info("getAllExchangeValues called with {} to {}");
 		
-		List<CurrencyExchange> currencyExchangeList = repository.findAll();
+		List<CurrencyExchange> currencyExchangeList = service.getAllCurrencyExchanges();
 		
 		return currencyExchangeList;
 		
@@ -66,6 +66,8 @@ public class CurrencyExchangeController {
 		currencyExchange.setEnvironment(port);
 		
 		logger.info("submitExchangeToQueue response {}", currencyExchange.toString());
+		
+		service.addCurrencyExchange(currencyExchange.getRecordId(), currencyExchange.getFrom(), currencyExchange.getTo(), currencyExchange.getConversionMultiple());
 		
 		return currencyExchange;
 		
