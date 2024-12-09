@@ -1,17 +1,14 @@
 package com.in28minutes.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document("currencyexchange")
 public class CurrencyExchange {
 	
-	@Id
-	private String id;
+	private String recordId;
 	
 	private String from;
 	
@@ -24,20 +21,20 @@ public class CurrencyExchange {
 		
 	}
 	
-	public CurrencyExchange(String id, String from, String to, BigDecimal conversionMultiple) {
+	public CurrencyExchange(String recordId, String from, String to, BigDecimal conversionMultiple) {
 		super();
-		this.id = id;
+		this.recordId = recordId;
 		this.from = from;
 		this.to = to;
 		this.conversionMultiple = conversionMultiple;
 	}
 
 	public String getId() {
-		return id;
+		return recordId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String recordId) {
+		this.recordId = recordId;
 	}
 
 	public String getFrom() {
@@ -75,7 +72,7 @@ public class CurrencyExchange {
 
 	@Override
 	public String toString() {
-		return "CurrencyExchange [id=" + id + ", from=" + from + ", to=" + to + ", conversionMultiple="
+		return "CurrencyExchange [recordId=" + recordId + ", from=" + from + ", to=" + to + ", conversionMultiple="
 				+ conversionMultiple + ", environment=" + environment + "]";
 	}
 	
